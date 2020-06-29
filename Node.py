@@ -1,10 +1,14 @@
-from Crypto.PublicKey import RSA
-from config import *
 from random import randrange
+
+from config import *
+from Crypto.PublicKey import RSA
 from MerkleTree import MerkleTree
 from Transaction import *
 
+
 class Node:
+    allNodes = []
+
     def __init__(self):
         key = RSA.generate(2048)
         self.pubKey = key.publickey().exportKey('PEM')
@@ -12,19 +16,19 @@ class Node:
         self.transactions = []
         self.blockqueue = []
         self.target = None
-        self.utxo = 25
         self.incentive = 0
+        # self.utxo = {nodePtr: [(transactionHashPtr, transactionIndex), ... ] , .. }
+        self.utxo = {}
 
     def generateNonce(self):
         return randrange(0,2**sizeOfNonce)
 
-    
+
     def generateBlock(self):
-        
+
         return
 
     def generateMerkleTree(self):
-        count = 0
         childs = []
         for i in self.transactions:
             childs.append((MerkleTree([i],True),0))
@@ -38,7 +42,7 @@ class Node:
 
             childs.append((MerkleTree(merkleTreeChild),level+1))
         return childs[0][0]
-    
+
     def proofOfWork(self):
         pass
 
@@ -51,8 +55,3 @@ class Node:
 
 
 # n1.generateMerkleTree()
-
-
-
-        
-        

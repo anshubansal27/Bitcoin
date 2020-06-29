@@ -1,6 +1,8 @@
 from config import *
-from Transaction import *
 from HashAlgo import *
+from Transaction import *
+
+
 class MerkleTree:
     def __init__(self, child, txnflag = False):
         if(txnflag):
@@ -11,9 +13,9 @@ class MerkleTree:
             for i in child:
                 allHashVal += i.hashvalue
             print(allHashVal)
-            self.hashvalue = allHashVal
-            # self.hashvalue = generateHash(allHashVal)
-            
+            # self.hashvalue = allHashVal
+            self.hashvalue = generateHash(allHashVal)
+
         self.childs = child
         self.txn = txnflag
 
@@ -35,11 +37,4 @@ class MerkleTree:
 # m6 = MerkleTree([m4,m5],"F")
 
 # m7 = MerkleTree([m3,m6],"G")
-
-
-
-
-
-
-
 
