@@ -10,14 +10,17 @@ class Node:
     allNodes = []
 
     def __init__(self):
-        key = RSA.generate(2048)
-        self.pubKey = key.publickey().exportKey('PEM')
-        self.pvtKey = key.exportKey('PEM')
+        self.pubKey = []
+        self.pvtKey = []
+        for i in range(5):
+            key = RSA.generate(2048)
+            self.pubKey.append(key.publickey().exportKey('PEM'))
+            self.pvtKey.append(key.exportKey('PEM'))
         self.transactions = []
         self.blockqueue = []
         self.target = None
         self.incentive = 0
-        # self.utxo = {nodePtr: [(transactionHashPtr, transactionIndex), ... ] , .. }
+        # self.utxo = {pubKeyHash: [(transactionHashPtr, transactionIndex), ... ] , .. }
         self.utxo = {}
 
     def generateNonce(self):

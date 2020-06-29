@@ -6,8 +6,8 @@ from Transaction import *
 class MerkleTree:
     def __init__(self, child, txnflag = False):
         if(txnflag):
-            self.hashvalue = "xy"
-            print("txn")
+            self.hashvalue = child[0].hashvalue
+            # print("txn")
         else:
             allHashVal = ""
             for i in child:
