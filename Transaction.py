@@ -23,7 +23,7 @@ class Transaction:
             return
 
         validCoins = self.isValidTxn(amnt)
-        # print("in", validCoins)
+        print("in validcoins Txn", validCoins)
         if validCoins == -1:
             self.hashVal = generateHash(allHash)
             self.validTxn = False
@@ -51,6 +51,8 @@ class Transaction:
                 # print("in executescript ")
                 return -1
             validBitCoins += x[0][0].output[index][0]
+            print(" trans.py ",x[0][0].output[index][0])
+        print("coins", validBitCoins)
         if validBitCoins < amnt:
             return -1
         # print("validCoin", validBitCoins)
@@ -80,5 +82,3 @@ class Transaction:
 
 
 # txn1 = Transaction(senderPrevTxn,[ScriptSign(sendersignature,senderpubKey)], 50, recvrpubKeyHash, sdrpubkeyhobj)
-
-

@@ -1,23 +1,27 @@
-from random import randrange
-from config import *
+import concurrent.futures
+import multiprocessing
+import threading
+import time
+from random import random, randrange
+
 from Crypto.PublicKey import RSA
+
+from Block import *
+from Blockchain import *
+from config import *
 from MerkleTree import MerkleTree
 from Transaction import *
-from Blockchain import *
-from Block import *
-import multiprocessing
-import time
-from random import random
 
 
-class Node(multiprocessing.Process):
+class Node:
     allNodes = []
 
     def __init__(self):
+        # super(Node, self).__init__()
         self.pubKey = []
         self.pvtKey = []
         self.blockchain = BlockChain()
-        for i in range(5):
+        for _ in range(5):
             key = RSA.generate(2048)
             self.pubKey.append(key.publickey().exportKey('PEM'))
             self.pvtKey.append(key.exportKey('PEM'))
@@ -26,6 +30,7 @@ class Node(multiprocessing.Process):
         self.target = None
         self.incentive = 0
         self.bitcoins = 0
+        self.start = 0
         # self.utxo = {pubKeyHash: [(transactionHashPtr, transactionIndex), ... ] , .. }
         self.utxo = {}
 
@@ -36,63 +41,82 @@ class Node(multiprocessing.Process):
         return keyhash
 
     def run(self):
-        start = time.time()
+        self.start = time.time()
         while(True):
+            print("in run")
             end = time.time()
-            if(end - time > 60):
-                start = time.time()
+            if(end - self.start > 60):
+                print("Creating block ")
                 blk = self.createBlock()
                 self.target = blk.hashVal
                 pow = self.proofOfWork()
                 if pow:
+                    print("In pow ")
                     for node in self.allNodes:
                         node.processBlocks(blk)
-                    self.transactions = []
-            
+                    for key in self.utxo:
+                        # key, val = x[0], x[1]
+                        val = self.utxo[key]
+                        print("key ", key)
+                        # print("val ", val)
+                        for y in val:
+                            print("transaction amt ", y[0].output[y[1]][0])
+                        # print("transaction amt", val[0].output[val[1]][0])
+                        print("----------------------")
+                    # self.transactions = []
+
+
             dotxn = random()
 
-            if(dotxn <= 0.5 and self.bitcoins > 0):
+            if(dotxn <= 0.5 ):
                 recvr = randrange(0,numberOfNodes)
                 recvrnode = self.allNodes[recvr]
                 recvrkeyhash = recvrnode.getWalletAddress()
                 prev_txn = []
                 scriptsign = []
+                print("--- after script sign --")
                 for j in range(5):
                     pkey = self.pubKey[j]
                     pvtkey = self.pvtKey[j]
-                    sendrpubkeyhash =  SHA256.new(hashlib.sha256(pkey).hexdigest().encode()) 
-                    signer = PKCS115_SigScheme(RSA.importKey(senderpvtKey))
+                    sendrpubkeyhash =  SHA256.new(hashlib.sha256(pkey).hexdigest().encode())
+                    signer = PKCS115_SigScheme(RSA.importKey(pvtkey))
                     sendersignature = signer.sign(sendrpubkeyhash)
                     try:
+                        print(sendrpubkeyhash.hexdigest())
                         txn_l = self.utxo[sendrpubkeyhash.hexdigest()]
                         for t in txn_l:
                             prev_txn.append(t)
                             scriptsign.append(sendersignature)
                     except KeyError:
                         continue
-                bitcoinval = randrange(1,self.bitcoins+1)
-                new_txn = Transaction(prev_txn,scriptSign,bitcoinval,recvrkeyhash,sendrpubkeyhash)
+                # bitcoinval = randrange(1,self.bitcoins+1)
+                bitcoinval = 5
+                print("prev trans len ", len(prev_txn))
+                new_txn = Transaction(prev_txn,scriptsign,bitcoinval,recvrkeyhash,sendrpubkeyhash)
                 for node in self.allNodes:
                     node.processTransactions(new_txn)
-                self.bitcoins -= bitcoinval
+                # self.bitcoins -= bitcoinval
 
 
-            time.sleep(1)
+            # time.sleep(1)
 
     def generateNonce(self):
         return randrange(0,2**sizeOfNonce)
 
     def processTransactions(self, txn):
         if(txn.validTxn):
+            print("valid txn")
             self.transactions.append(txn)
-        else:
-            print("an invalid txn ..... ")
+        # else:
+        #     print("an invalid txn ..... ")
 
     def processBlocks(self,blck):
         # self.blockqueue.append(blck)
         if(self.blockchain.rootBlock == None):
             self.blockchain.rootBlock = blck
         self.blockchain.latestBlock = blck
+
+        txnList = self.transactions.copy()
         for txns in blck.txnList:
             for x in txns.input:
                 index = x[0][1]
@@ -104,13 +128,27 @@ class Node(multiprocessing.Process):
             index = 0
             for x in txns.output:
                 scriptpubKey = x[1].publicKeyHash
-                self.utxo[scriptpubKey.hexdigest()].append((txns,index))
-                index += 1 
-            
+                try:
+                    self.utxo[scriptpubKey.hexdigest()].append((txns,index))
+                except KeyError:
+                    self.utxo[scriptpubKey.hexdigest()] = [(txns, index)]
+            # print("txn, index", txn, index)
+                index += 1
+
+            try:
+                txnList.remove(txns)
+            except ValueError:
+                continue
+
+        self.transactions = txnList
+
+        self.start = time.time()
+
     def createGenesisBlock(self):
         bitcoinvalue = 50
         # txn = []
-        for i in range(numberOfNodes/2):
+        # print(numberOfNodes//2)
+        for _ in range(numberOfNodes):
             randomNo = randrange(0,numberOfNodes)
             randkeyno = randrange(0,5)
             node = self.allNodes[randomNo]
@@ -121,8 +159,20 @@ class Node(multiprocessing.Process):
         blk = Block(None,rootMerkleTree,self.generateNonce(),self.transactions)
         for node in self.allNodes:
             node.processBlocks(blk)
-        
+
         self.transactions = []
+
+        for key in self.utxo:
+            # key, val = x[0], x[1]
+            val = self.utxo[key]
+            print("key ", key)
+            # print("val ", val)
+            for y in val:
+                print("transaction amt ", y[0].output[y[1]][0])
+            # print("transaction amt", val[0].output[val[1]][0])
+            print("----------------------")
+        print("----------------------  Genesis block ended  ---------------------")
+
 
 
     def createBlock(self):
@@ -149,7 +199,7 @@ class Node(multiprocessing.Process):
 
     def proofOfWork(self):
         for node in self.allNodes:
-            if(self.target > node.target):
+            if(node.target is not None and self.target > node.target):
                 return False
         return True
 
@@ -162,13 +212,21 @@ class Node(multiprocessing.Process):
 
 
 # n1.generateMerkleTree()
+
+def run_thread(node):
+    # print("in run thread")
+    node.run()
+
+
 nodesList = []
 for i in range(numberOfNodes):
     n1 = Node()
     nodesList.append(n1)
-    Node.allNodes.append(n1)
+    n1.allNodes.append(n1)
 
+nodesList[0].createGenesisBlock()
+# nodesList[0].start()
 
-
-
-
+with concurrent.futures.ThreadPoolExecutor(max_workers=numberOfNodes) as executor:
+        for node in nodesList:
+            executor.submit(run_thread,node)
