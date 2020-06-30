@@ -1,8 +1,11 @@
 import hashlib
+
+from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 # from Crypto.Signature.pkcs1_15 import PKCS115_SigScheme
 from Crypto.Signature.PKCS1_v1_5 import PKCS115_SigScheme
-from Crypto.Hash import SHA256
+
+
 class ScriptPubKey:
 
     def __init__(self, publicKeyHash):
@@ -15,19 +18,28 @@ class ScriptSign:
         self.pubKey = publickey
 
 
-def executeScripts(scriptSign, ScriptPubKey):
+def executeScripts(scriptSign, scriptPubKey):
+    print("##### 5.2")
     signature = scriptSign.sign
+    print("##### 5.3")
     sigPubKey = scriptSign.pubKey
-    pubKeyHash = ScriptPubKey.publicKeyHash
+    print("##### 5.4")
+    pubKeyHash = scriptPubKey.publicKeyHash
+
+    print("##### 5.5")
     genpubKeyHash = SHA256.new(hashlib.sha256(sigPubKey).hexdigest().encode())
+    print("#### 7")
     # print(genpubKeyHash.hexdigest())
     if(pubKeyHash.hexdigest() != genpubKeyHash.hexdigest()):
+        print("#### 7.1")
         return False
     verifier = PKCS115_SigScheme(RSA.importKey(sigPubKey))
     try:
+        print("#### 7.2")
         verifier.verify(pubKeyHash, signature)
     except:
         return False
+    print("#### 8")
     return True
 
 
@@ -45,4 +57,3 @@ def executeScripts(scriptSign, ScriptPubKey):
 # s = ScriptSign(signature, pubKey)
 # scrptp = ScriptPubKey(hash2)
 # print(executeScripts(s,scrptp))
-    

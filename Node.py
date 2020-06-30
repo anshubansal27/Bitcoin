@@ -15,16 +15,22 @@ from Transaction import *
 
 class Node:
     allNodes = []
+    # publicKeyMap = {hash --> id}
+    publickeyMap = {}
 
-    def __init__(self):
+    def __init__(self, id):
         # super(Node, self).__init__()
+        self.id = id
         self.pubKey = []
         self.pvtKey = []
         self.blockchain = BlockChain()
-        for _ in range(5):
+        for i in range(5):
             key = RSA.generate(2048)
             self.pubKey.append(key.publickey().exportKey('PEM'))
             self.pvtKey.append(key.exportKey('PEM'))
+            pubKeyHash = SHA256.new(hashlib.sha256(self.pubKey[i]).hexdigest().encode())
+            Node.publickeyMap[pubKeyHash.hexdigest()] = str(self.id) +  " . " + str(i)
+
         self.transactions = []
         self.blockqueue = []
         self.target = None
@@ -33,6 +39,7 @@ class Node:
         self.start = 0
         # self.utxo = {pubKeyHash: [(transactionHashPtr, transactionIndex), ... ] , .. }
         self.utxo = {}
+        Transaction.keymap = Node.publickeyMap
 
     def getWalletAddress(self):
         keyno = randrange(0,5)
@@ -43,58 +50,73 @@ class Node:
     def run(self):
         self.start = time.time()
         while(True):
-            print("in run")
+            # print("in run")
             end = time.time()
-            if(end - self.start > 60):
+            if(end - self.start > 3):
                 print("Creating block ")
                 blk = self.createBlock()
                 self.target = blk.hashVal
                 pow = self.proofOfWork()
                 if pow:
-                    print("In pow ")
+                    print("In pow node id", self.id)
                     for node in self.allNodes:
                         node.processBlocks(blk)
+
                     for key in self.utxo:
                         # key, val = x[0], x[1]
                         val = self.utxo[key]
-                        print("key ", key)
+                        # print("key ", Node.publickeyMap[key])
                         # print("val ", val)
                         for y in val:
-                            print("transaction amt ", y[0].output[y[1]][0])
+                            print("Node id ", self.id ,"key ", Node.publickeyMap[key], "transaction amt ", y[0].output[y[1]][0])
                         # print("transaction amt", val[0].output[val[1]][0])
                         print("----------------------")
+                    print(" # # # # # # # # # # # #")
                     # self.transactions = []
 
 
             dotxn = random()
 
-            if(dotxn <= 0.5 ):
+            if(dotxn <= 0.0001 ):
                 recvr = randrange(0,numberOfNodes)
                 recvrnode = self.allNodes[recvr]
                 recvrkeyhash = recvrnode.getWalletAddress()
                 prev_txn = []
                 scriptsign = []
-                print("--- after script sign --")
+                # print("--- after script sign --")
                 for j in range(5):
                     pkey = self.pubKey[j]
                     pvtkey = self.pvtKey[j]
-                    sendrpubkeyhash =  SHA256.new(hashlib.sha256(pkey).hexdigest().encode())
-                    signer = PKCS115_SigScheme(RSA.importKey(pvtkey))
-                    sendersignature = signer.sign(sendrpubkeyhash)
+
                     try:
-                        print(sendrpubkeyhash.hexdigest())
+                        sendrpubkeyhash =  SHA256.new(hashlib.sha256(pkey).hexdigest().encode())
+                        # print(sendrpubkeyhash.hexdigest())
                         txn_l = self.utxo[sendrpubkeyhash.hexdigest()]
                         for t in txn_l:
+                            sendrPubKeyHash =  SHA256.new(hashlib.sha256(pkey).hexdigest().encode())
+                            # print(" -- 1 --")
+                            sendrPubKeyHash.update(t[0].hashVal.encode())
+                            # print(" -- 2 --")
+                            signer = PKCS115_SigScheme(RSA.importKey(pvtkey))
+                            sendersignature = signer.sign(sendrPubKeyHash)
                             prev_txn.append(t)
-                            scriptsign.append(sendersignature)
+                            scriptsign.append(ScriptSign(sendersignature, pkey))
                     except KeyError:
                         continue
                 # bitcoinval = randrange(1,self.bitcoins+1)
                 bitcoinval = 5
-                print("prev trans len ", len(prev_txn))
+                print("#### 9")
+                tempSender = sendrpubkeyhash.hexdigest()
+                tempReceiver = recvrkeyhash.hexdigest()
                 new_txn = Transaction(prev_txn,scriptsign,bitcoinval,recvrkeyhash,sendrpubkeyhash)
+                print("#### 10")
+                if new_txn.validTxn:
+                    print("Sender ", Node.publickeyMap[tempSender], "Receiver ", Node.publickeyMap[tempReceiver])
+
+
                 for node in self.allNodes:
                     node.processTransactions(new_txn)
+
                 # self.bitcoins -= bitcoinval
 
 
@@ -105,7 +127,7 @@ class Node:
 
     def processTransactions(self, txn):
         if(txn.validTxn):
-            print("valid txn")
+            # print("valid txn")
             self.transactions.append(txn)
         # else:
         #     print("an invalid txn ..... ")
@@ -115,12 +137,13 @@ class Node:
         if(self.blockchain.rootBlock == None):
             self.blockchain.rootBlock = blck
         self.blockchain.latestBlock = blck
+        print("Block added to blockchain")
 
         txnList = self.transactions.copy()
         for txns in blck.txnList:
             for x in txns.input:
                 index = x[0][1]
-                scriptpubKey = x[0][0].output[index][1]
+                scriptpubKey = x[0][0].output[index][1].publicKeyHash
                 try:
                     self.utxo[scriptpubKey.hexdigest()] = []
                 except KeyError:
@@ -165,7 +188,7 @@ class Node:
         for key in self.utxo:
             # key, val = x[0], x[1]
             val = self.utxo[key]
-            print("key ", key)
+            print("key ", Node.publickeyMap[key])
             # print("val ", val)
             for y in val:
                 print("transaction amt ", y[0].output[y[1]][0])
@@ -220,7 +243,7 @@ def run_thread(node):
 
 nodesList = []
 for i in range(numberOfNodes):
-    n1 = Node()
+    n1 = Node(i)
     nodesList.append(n1)
     n1.allNodes.append(n1)
 
