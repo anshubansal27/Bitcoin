@@ -53,25 +53,30 @@ class Node:
             # print("in run")
             end = time.time()
             if(end - self.start > 3):
-                print("Creating block ")
-                blk = self.createBlock()
-                self.target = blk.hashVal
-                pow = self.proofOfWork()
-                if pow:
-                    print("In pow node id", self.id)
-                    for node in self.allNodes:
-                        node.processBlocks(blk)
+                if(len(self.transactions) > 0):
+                    print("Creating block ")
+                    blk = self.createBlock()
+                    print(" #### creating block ####")
+                    self.target = blk.hashVal
+                    pow = self.proofOfWork()
+                    if pow:
+                        print("In pow node id", self.id)
+                        for node in self.allNodes:
+                            node.processBlocks(blk)
 
-                    for key in self.utxo:
-                        # key, val = x[0], x[1]
-                        val = self.utxo[key]
-                        # print("key ", Node.publickeyMap[key])
-                        # print("val ", val)
-                        for y in val:
-                            print("Node id ", self.id ,"key ", Node.publickeyMap[key], "transaction amt ", y[0].output[y[1]][0])
-                        # print("transaction amt", val[0].output[val[1]][0])
-                        print("----------------------")
-                    print(" # # # # # # # # # # # #")
+                        for key in self.utxo:
+                            # key, val = x[0], x[1]
+                            val = self.utxo[key]
+                            # print(val)
+                            # print("key ", Node.publickeyMap[key])
+                            # print("val ", val)
+                            for y in val:
+                                print("Node id ", self.id ,"key ", Node.publickeyMap[key], "transaction amt ", y[0].output[y[1]][0])
+                            # print("transaction amt", val[0].output[val[1]][0])
+                            print("----------------------")
+                        print(" # # # # # # # # # # # #")
+                    else:
+                        self.start = time.time()
                     # self.transactions = []
 
 
@@ -113,9 +118,11 @@ class Node:
                 if new_txn.validTxn:
                     print("Sender ", Node.publickeyMap[tempSender], "Receiver ", Node.publickeyMap[tempReceiver])
 
-
+                print("#### 11")
                 for node in self.allNodes:
                     node.processTransactions(new_txn)
+
+                print(" ##### 12")
 
                 # self.bitcoins -= bitcoinval
 
@@ -139,31 +146,32 @@ class Node:
         self.blockchain.latestBlock = blck
         print("Block added to blockchain")
 
-        txnList = self.transactions.copy()
+        print("block txn list len ", len(blck.txnList))
+
+        # txnList = self.transactions.copy()
+        # self.transactions = txnList
         for txns in blck.txnList:
             for x in txns.input:
                 index = x[0][1]
-                scriptpubKey = x[0][0].output[index][1].publicKeyHash
+                scriptpubKey = x[0][0].output[index][1].recvrkeyHash
                 try:
-                    self.utxo[scriptpubKey.hexdigest()] = []
+                    self.utxo[scriptpubKey] = []
                 except KeyError:
                     continue
             index = 0
             for x in txns.output:
-                scriptpubKey = x[1].publicKeyHash
+                scriptpubKey = x[1].recvrkeyHash
                 try:
-                    self.utxo[scriptpubKey.hexdigest()].append((txns,index))
+                    self.utxo[scriptpubKey].append((txns,index))
                 except KeyError:
-                    self.utxo[scriptpubKey.hexdigest()] = [(txns, index)]
+                    self.utxo[scriptpubKey] = [(txns, index)]
             # print("txn, index", txn, index)
                 index += 1
 
             try:
-                txnList.remove(txns)
+                self.transactions.remove(txns)
             except ValueError:
                 continue
-
-        self.transactions = txnList
 
         self.start = time.time()
 
@@ -178,8 +186,9 @@ class Node:
             recverpubkeyHash = SHA256.new(hashlib.sha256(node.pubKey[randkeyno]).hexdigest().encode())
             t1 = Transaction([],[],bitcoinvalue,recverpubkeyHash,None,True)
             self.transactions.append(t1)
-        rootMerkleTree = self.generateMerkleTree()
-        blk = Block(None,rootMerkleTree,self.generateNonce(),self.transactions)
+        txn = self.transactions.copy()
+        rootMerkleTree = self.generateMerkleTree(txn)
+        blk = Block(None,rootMerkleTree,self.generateNonce(),txn)
         for node in self.allNodes:
             node.processBlocks(blk)
 
@@ -199,16 +208,22 @@ class Node:
 
 
     def createBlock(self):
-        rootMerkleTree = self.generateMerkleTree()
-        blk = Block(self.blockchain.latestBlock,rootMerkleTree,self.generateNonce(),self.transactions)
+        print("##### 14.1")
+        txn = self.transactions.copy()
+        rootMerkleTree = self.generateMerkleTree(txn)
+        print("#### 14.2")
+        blk = Block(self.blockchain.latestBlock,rootMerkleTree,self.generateNonce(),txn)
+        print("#### 14.3")
         # self.transactions = []
         return blk
 
 
-    def generateMerkleTree(self):
+    def generateMerkleTree(self, txns):
         childs = []
-        for i in self.transactions:
+        print("##### 15.1")
+        for i in txns:
             childs.append((MerkleTree([i],True),0))
+        print("##### 15.2")
         while(len(childs) > 1):
             level = childs[0][1]
             merkleTreeChild = []

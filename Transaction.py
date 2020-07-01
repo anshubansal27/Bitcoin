@@ -20,10 +20,11 @@ class Transaction:
         # print("before genesis block")
         # print("### 3")
         if(genesisBlockTxn):
-            self.output.append((amnt, ScriptPubKey(receiverPubKeyHash)))
+            self.output.append((amnt, ScriptPubKey(receiverPubKeyHash, receiverPubKeyHash.hexdigest())))
             for res in self.output:
                 allHash += str(res[0]) + res[1].publicKeyHash.hexdigest()
             self.hashVal = generateHash(allHash)
+            receiverPubKeyHash.update(self.hashVal.encode())
             return
 
         # print("### 4")
@@ -36,11 +37,11 @@ class Transaction:
 
         print("#### 4.1")
 
-        self.output.append((amnt, ScriptPubKey(receiverPubKeyHash)))
+        self.output.append((amnt, ScriptPubKey(receiverPubKeyHash, receiverPubKeyHash.hexdigest())))
 
 
         if validCoins > amnt:
-           self.output.append( (validCoins - amnt, ScriptPubKey(senderPubKeyHash)) )
+           self.output.append( (validCoins - amnt, ScriptPubKey(senderPubKeyHash, senderPubKeyHash.hexdigest())) )
 
         # print("output size", len(self.output))
         for res in self.output:
@@ -61,17 +62,19 @@ class Transaction:
         for x in self.input:
             # print("### 5")
             index = x[0][1]
+            txnhash = x[0][0].hashVal
             scriptSign = x[1]
             scriptpubKey = x[0][0].output[index][1]
             # print("###### 5.1")
-            if executeScripts(scriptSign, scriptpubKey) == False:
-                # print("in executescript ")
+            if executeScripts(scriptSign, scriptpubKey, txnhash) == False:
+                print("in executescript ")
                 return -1
             validBitCoins += x[0][0].output[index][0]
             # print(" trans.py ",x[0][0].output[index][0])
             # print("### 6")
-        # print("coins", validBitCoins)
+        print("coins", validBitCoins)
         if validBitCoins < amnt:
+            print("less coins")
             return -1
         # print("validCoin", validBitCoins)
         return validBitCoins

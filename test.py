@@ -1,21 +1,12 @@
-import multiprocessing
-import time
+from Crypto.Hash import SHA256
+import hashlib
 
+obj = SHA256.new(hashlib.sha256('anshu'.encode()).hexdigest().encode())
 
-class Process(multiprocessing.Process):
-    def __init__(self, id):
-        super(Process, self).__init__()
-        self.id = id
+print(obj.hexdigest())
 
-    def run(self):
-        time.sleep(1)
-        print("I'm the process with id: {}".format(self.id))
+obj.update('anshu'.encode())
+print(obj.hexdigest())
 
-
-allprocess = []
-for i in range(10):
-    p = Process(i)
-    allprocess.append(p)
-
-for i in range(10):
-    allprocess[i].start()
+obj.update('garima'.encode())
+print(obj.hexdigest())

@@ -8,8 +8,9 @@ from Crypto.Signature.PKCS1_v1_5 import PKCS115_SigScheme
 
 class ScriptPubKey:
 
-    def __init__(self, publicKeyHash):
+    def __init__(self, publicKeyHash, recvrkeyHash):
         self.publicKeyHash = publicKeyHash
+        self.recvrkeyHash = recvrkeyHash
 
 class ScriptSign:
 
@@ -18,7 +19,7 @@ class ScriptSign:
         self.pubKey = publickey
 
 
-def executeScripts(scriptSign, scriptPubKey):
+def executeScripts(scriptSign, scriptPubKey, hashVal):
     print("##### 5.2")
     signature = scriptSign.sign
     print("##### 5.3")
@@ -28,6 +29,7 @@ def executeScripts(scriptSign, scriptPubKey):
 
     print("##### 5.5")
     genpubKeyHash = SHA256.new(hashlib.sha256(sigPubKey).hexdigest().encode())
+    genpubKeyHash.update(hashVal.encode())
     print("#### 7")
     # print(genpubKeyHash.hexdigest())
     if(pubKeyHash.hexdigest() != genpubKeyHash.hexdigest()):
