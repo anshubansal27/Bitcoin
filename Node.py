@@ -12,6 +12,7 @@ from config import *
 from MerkleTree import MerkleTree
 from Transaction import *
 
+
 class Node:
     allNodes = []
     txnFlag = True
@@ -63,28 +64,40 @@ class Node:
                     if pow:
                         Node.txnFlag = False
                         print("In pow node id", self.id)
-                        for node in self.allNodes:
-                            node.processBlocks(blk)
 
-                        for key in self.utxo:
-                            # key, val = x[0], x[1]
-                            val = self.utxo[key]
-                            # print(val)
-                            # print("key ", Node.publickeyMap[key])
-                            # print("val ", val)
-                            for y in val:
-                                print("Node id ", self.id ,"key ", Node.publickeyMap[key], "transaction amt ", y[0].output[y[1]][0])
-                            # print("transaction amt", val[0].output[val[1]][0])
-                            print("----------------------")
-                        print(" # # # # # # # # # # # #")
-                        Node.txnFlag = True
-                        Node.txnnodes = []
-                        self.incentive += incentive
-                        randkeyno = randrange(0,5)
-                        recverpubkeyHash = SHA256.new(hashlib.sha256(self.pubKey[randkeyno]).hexdigest().encode())
-                        txn = Transaction([],[],incentive,recverpubkeyHash,None,True)
+                        flag = True
                         for node in self.allNodes:
-                            node.processTransactions(txn)
+                            if node.getConsensus(blk) == False:
+                                flag = False
+                                break
+
+                        if flag:
+                            for node in self.allNodes:
+                                node.processBlocks(blk)
+
+                            for key in self.utxo:
+                                # key, val = x[0], x[1]
+                                val = self.utxo[key]
+                                # print(val)
+                                # print("key ", Node.publickeyMap[key])
+                                # print("val ", val)
+                                for y in val:
+                                    print("Node id ", self.id ,"key ", Node.publickeyMap[key], "transaction amt ", y[0].output[y[1]][0])
+                                # print("transaction amt", val[0].output[val[1]][0])
+                                print("----------------------")
+                            print(" # # # # # # # # # # # #")
+                            Node.txnFlag = True
+                            Node.txnnodes = []
+                            self.incentive += incentive
+                            randkeyno = randrange(0,5)
+                            recverpubkeyHash = SHA256.new(hashlib.sha256(self.pubKey[randkeyno]).hexdigest().encode())
+                            txn = Transaction([],[],incentive,recverpubkeyHash,None,True)
+                            for node in self.allNodes:
+                                node.processTransactions(txn)
+                        else:
+                            self.transactions = []
+                            Node.txnFlag = True
+                            Node.txnnodes = []
                     else:
                         self.start = time.time()
                     # self.transactions = []
@@ -142,6 +155,14 @@ class Node:
 
             time.sleep(1)
 
+    def getConsensus(self, block):
+        if self.blockchain.latestBlock != block.prevBlockPtr:
+            return False
+        for txn in block.txnList:
+            if txn.validTxn == False:
+                return False
+        return True
+
     def generateNonce(self):
         return randrange(0,2**sizeOfNonce)
 
@@ -156,6 +177,7 @@ class Node:
         # self.blockqueue.append(blck)
         if(self.blockchain.rootBlock == None):
             self.blockchain.rootBlock = blck
+
         self.blockchain.latestBlock = blck
         print("Block added to blockchain")
 

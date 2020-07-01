@@ -20,86 +20,42 @@ Block added to blockchain
 block txn list len  10
 Block added to blockchain
 block txn list len  10
-key  3 . 1
-transaction amt  1000
-transaction amt  1000
-----------------------
-key  0 . 3
+key  6 . 1
 transaction amt  1000
 ----------------------
-key  6 . 4
+key  2 . 1
 transaction amt  1000
 ----------------------
-key  9 . 2
+key  3 . 0
 transaction amt  1000
 ----------------------
-key  9 . 4
-transaction amt  1000
-----------------------
-key  0 . 4
-transaction amt  1000
-----------------------
-key  3 . 4
-transaction amt  1000
-----------------------
-key  9 . 0
+key  8 . 1
 transaction amt  1000
 ----------------------
 key  4 . 0
 transaction amt  1000
 ----------------------
+key  9 . 4
+transaction amt  1000
+----------------------
+key  4 . 2
+transaction amt  1000
+----------------------
+key  1 . 3
+transaction amt  1000
+transaction amt  1000
+----------------------
+key  5 . 3
+transaction amt  1000
+----------------------
 ----------------------  Genesis block ended  ---------------------
 #### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
 ##### 5.2
 ##### 5.3
 ##### 5.4
 ##### 5.5
 #### 7
 #### 7.2
-#### 8
-coins 1000
-in validcoins Txn 1000
-#### 4.1
-Sender from tran 6 . 4 Receiver from trans  5 . 0 amount  37
-#### 10
-Sender  6 . 4 Receiver  5 . 0
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
 #### 8
 ##### 5.2
 ##### 5.3
@@ -111,9 +67,9 @@ in validcoins Txn -1
 coins 2000
 in validcoins Txn 2000
 #### 4.1
-Sender from tran 0 . 4 Receiver from trans  6 . 1 amount  39
+Sender from tran 1 . 4 Receiver from trans  0 . 3 amount  18
 #### 10
-Sender  0 . 4 Receiver  6 . 1
+Sender  1 . 4 Receiver  0 . 3
 #### 11
  ##### 12
 #### 9
@@ -127,23 +83,9 @@ Sender  0 . 4 Receiver  6 . 1
 coins 1000
 in validcoins Txn 1000
 #### 4.1
-Sender from tran 4 . 4 Receiver from trans  7 . 1 amount  12
+Sender from tran 2 . 4 Receiver from trans  7 . 2 amount  39
 #### 10
-Sender  4 . 4 Receiver  7 . 1
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
+Sender  2 . 4 Receiver  7 . 2
 #### 11
  ##### 12
 #### 9
@@ -154,26 +96,19 @@ in validcoins Txn -1
 #### 7
 #### 7.2
 #### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 3000
-in validcoins Txn 3000
+coins 1000
+in validcoins Txn 1000
 #### 4.1
-Sender from tran 9 . 4 Receiver from trans  0 . 1 amount  21
+Sender from tran 3 . 4 Receiver from trans  0 . 2 amount  10
 #### 10
-Sender  9 . 4 Receiver  0 . 1
+Sender  3 . 4 Receiver  0 . 2
+#### 11
+ ##### 12
+#### 9
+coins 0
+less coins
+in validcoins Txn -1
+#### 10
 #### 11
  ##### 12
 #### 9
@@ -191,19 +126,60 @@ Sender  9 . 4 Receiver  0 . 1
 #### 7
 #### 7.2
 #### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 3000
-in validcoins Txn 3000
+coins 2000
+in validcoins Txn 2000
 #### 4.1
-Sender from tran 3 . 4 Receiver from trans  9 . 3 amount  46
+Sender from tran 4 . 4 Receiver from trans  8 . 4 amount  25
 #### 10
-Sender  3 . 4 Receiver  9 . 3
+Sender  4 . 4 Receiver  8 . 4
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1000
+in validcoins Txn 1000
+#### 4.1
+Sender from tran 8 . 4 Receiver from trans  0 . 0 amount  20
+#### 10
+Sender  8 . 4 Receiver  0 . 0
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1000
+in validcoins Txn 1000
+#### 4.1
+Sender from tran 9 . 4 Receiver from trans  6 . 3 amount  18
+#### 10
+Sender  9 . 4 Receiver  6 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1000
+in validcoins Txn 1000
+#### 4.1
+Sender from tran 5 . 4 Receiver from trans  1 . 1 amount  24
+#### 10
+Sender  5 . 4 Receiver  1 . 1
 #### 11
  ##### 12
 #### 9
@@ -228,31 +204,19 @@ in validcoins Txn -1
 #### 11
  ##### 12
 #### 9
-coins 0
-less coins
-in validcoins Txn -1
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1000
+in validcoins Txn 1000
+#### 4.1
+Sender from tran 6 . 4 Receiver from trans  4 . 3 amount  26
 #### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
+Sender  6 . 4 Receiver  4 . 3
 #### 11
  ##### 12
 #### 9
@@ -283,320 +247,7 @@ Creating block
 #### 14.2
 #### 14.3
  #### creating block ####
-In pow node id 6
-Block added to blockchain
-block txn list len  5
-Block added to blockchain
-block txn list len  5
-Block added to blockchain
-block txn list len  5
-Block added to blockchain
-block txn list len  5
-Block added to blockchain
-block txn list len  5
-Block added to blockchain
-block txn list len  5
-Block added to blockchain
-block txn list len  5
-Block added to blockchain
-block txn list len  5
-Block added to blockchain
-block txn list len  5
-Block added to blockchain
-block txn list len  5
-----------------------
-----------------------
-Node id  6 key  6 . 4 transaction amt  963
-----------------------
-----------------------
-Node id  6 key  9 . 4 transaction amt  2979
-----------------------
-Node id  6 key  0 . 4 transaction amt  1961
-----------------------
-Node id  6 key  3 . 4 transaction amt  2954
-----------------------
-----------------------
-----------------------
-Node id  6 key  5 . 0 transaction amt  37
-----------------------
-Node id  6 key  6 . 1 transaction amt  39
-----------------------
-Node id  6 key  7 . 1 transaction amt  12
-----------------------
-Node id  6 key  4 . 4 transaction amt  988
-----------------------
-Node id  6 key  0 . 1 transaction amt  21
-----------------------
-Node id  6 key  9 . 3 transaction amt  46
-----------------------
- # # # # # # # # # # # #
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 2954
-in validcoins Txn 2954
-#### 4.1
-Sender from tran 3 . 4 Receiver from trans  5 . 4 amount  11
-#### 10
-Sender  3 . 4 Receiver  5 . 4
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 3025
-in validcoins Txn 3025
-#### 4.1
-Sender from tran 9 . 4 Receiver from trans  4 . 2 amount  15
-#### 10
-Sender  9 . 4 Receiver  4 . 2
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 1002
-in validcoins Txn 1002
-#### 4.1
-Sender from tran 6 . 4 Receiver from trans  0 . 0 amount  35
-#### 10
-Sender  6 . 4 Receiver  0 . 0
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 12
-in validcoins Txn 12
-#### 4.1
-Sender from tran 7 . 4 Receiver from trans  5 . 3 amount  11
-#### 10
-Sender  7 . 4 Receiver  5 . 3
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 1982
-in validcoins Txn 1982
-#### 4.1
-Sender from tran 0 . 4 Receiver from trans  2 . 1 amount  42
-#### 10
-Sender  0 . 4 Receiver  2 . 1
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 37
-in validcoins Txn 37
-#### 4.1
-Sender from tran 5 . 4 Receiver from trans  1 . 0 amount  13
-#### 10
-Sender  5 . 4 Receiver  1 . 0
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 988
-in validcoins Txn 988
-#### 4.1
-Sender from tran 4 . 4 Receiver from trans  9 . 2 amount  13
-#### 10
-Sender  4 . 4 Receiver  9 . 2
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-In pow node id 7
+In pow node id 0
 Block added to blockchain
 block txn list len  8
 Block added to blockchain
@@ -619,40 +270,42 @@ Block added to blockchain
 block txn list len  8
 ----------------------
 ----------------------
-Node id  7 key  6 . 4 transaction amt  1
-Node id  7 key  6 . 4 transaction amt  967
 ----------------------
-Node id  7 key  9 . 2 transaction amt  13
 ----------------------
-Node id  7 key  9 . 4 transaction amt  3010
 ----------------------
-Node id  7 key  0 . 4 transaction amt  1940
-----------------------
-Node id  7 key  3 . 4 transaction amt  2943
+Node id  0 key  9 . 4 transaction amt  982
 ----------------------
 ----------------------
 ----------------------
 ----------------------
+Node id  0 key  0 . 3 transaction amt  18
 ----------------------
+Node id  0 key  1 . 4 transaction amt  1982
 ----------------------
-Node id  7 key  4 . 4 transaction amt  975
+Node id  0 key  7 . 2 transaction amt  39
 ----------------------
+Node id  0 key  2 . 4 transaction amt  961
 ----------------------
+Node id  0 key  0 . 2 transaction amt  10
 ----------------------
-Node id  7 key  5 . 4 transaction amt  11
-Node id  7 key  5 . 4 transaction amt  24
+Node id  0 key  3 . 4 transaction amt  990
 ----------------------
-Node id  7 key  4 . 2 transaction amt  15
+Node id  0 key  8 . 4 transaction amt  25
+Node id  0 key  8 . 4 transaction amt  980
 ----------------------
-Node id  7 key  0 . 0 transaction amt  35
+Node id  0 key  4 . 4 transaction amt  1975
 ----------------------
-Node id  7 key  5 . 3 transaction amt  11
+Node id  0 key  0 . 0 transaction amt  20
 ----------------------
-Node id  7 key  7 . 4 transaction amt  1
+Node id  0 key  6 . 3 transaction amt  18
 ----------------------
-Node id  7 key  2 . 1 transaction amt  42
+Node id  0 key  1 . 1 transaction amt  24
 ----------------------
-Node id  7 key  1 . 0 transaction amt  13
+Node id  0 key  5 . 4 transaction amt  976
+----------------------
+Node id  0 key  4 . 3 transaction amt  26
+----------------------
+Node id  0 key  6 . 4 transaction amt  974
 ----------------------
  # # # # # # # # # # # #
 #### 9
@@ -663,13 +316,6 @@ Node id  7 key  1 . 0 transaction amt  13
 #### 7
 #### 7.2
 #### 8
-coins 1
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
 ##### 5.2
 ##### 5.3
 ##### 5.4
@@ -677,26 +323,12 @@ in validcoins Txn -1
 #### 7
 #### 7.2
 #### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 46
-in validcoins Txn 46
+coins 2006
+in validcoins Txn 2006
 #### 4.1
-Sender from tran 5 . 4 Receiver from trans  9 . 4 amount  17
+Sender from tran 1 . 4 Receiver from trans  0 . 1 amount  25
 #### 10
-Sender  5 . 4 Receiver  9 . 4
+Sender  1 . 4 Receiver  0 . 1
 #### 11
  ##### 12
 #### 9
@@ -707,529 +339,10 @@ Sender  5 . 4 Receiver  9 . 4
 #### 7
 #### 7.2
 #### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 3023
-in validcoins Txn 3023
-#### 4.1
-Sender from tran 9 . 4 Receiver from trans  1 . 3 amount  17
-#### 10
-Sender  9 . 4 Receiver  1 . 3
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 968
-in validcoins Txn 968
-#### 4.1
-Sender from tran 6 . 4 Receiver from trans  9 . 3 amount  44
-#### 10
-Sender  6 . 4 Receiver  9 . 3
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 2943
-in validcoins Txn 2943
-#### 4.1
-Sender from tran 3 . 4 Receiver from trans  1 . 3 amount  42
-#### 10
-Sender  3 . 4 Receiver  1 . 3
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 13
+coins 39
 less coins
 in validcoins Txn -1
 #### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 990
-in validcoins Txn 990
-#### 4.1
-Sender from tran 4 . 4 Receiver from trans  0 . 2 amount  29
-#### 10
-Sender  4 . 4 Receiver  0 . 2
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 1
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 1975
-in validcoins Txn 1975
-#### 4.1
-Sender from tran 0 . 4 Receiver from trans  2 . 0 amount  45
-#### 10
-Sender  0 . 4 Receiver  2 . 0
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 13
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 42
-in validcoins Txn 42
-#### 4.1
-Sender from tran 2 . 4 Receiver from trans  6 . 3 amount  27
-#### 10
-Sender  2 . 4 Receiver  6 . 3
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 13
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 1
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 13
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 13
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 13
-in validcoins Txn 13
-#### 4.1
-Sender from tran 1 . 4 Receiver from trans  6 . 4 amount  13
-#### 10
-Sender  1 . 4 Receiver  6 . 4
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 1
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 1
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 1
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-Creating block 
-##### 14.1
-##### 15.1
-##### 15.2
-#### 14.2
-#### 14.3
- #### creating block ####
-In pow node id 2
-Block added to blockchain
-block txn list len  9
-Block added to blockchain
-block txn list len  9
-Block added to blockchain
-block txn list len  9
-Block added to blockchain
-block txn list len  9
-Block added to blockchain
-block txn list len  9
-Block added to blockchain
-block txn list len  9
-Block added to blockchain
-block txn list len  9
-Block added to blockchain
-block txn list len  9
-Block added to blockchain
-block txn list len  9
-Block added to blockchain
-block txn list len  9
-----------------------
-----------------------
-Node id  2 key  6 . 4 transaction amt  924
-Node id  2 key  6 . 4 transaction amt  13
-----------------------
-----------------------
-Node id  2 key  9 . 4 transaction amt  17
-Node id  2 key  9 . 4 transaction amt  3006
-----------------------
-Node id  2 key  0 . 4 transaction amt  1930
-----------------------
-Node id  2 key  3 . 4 transaction amt  2901
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-----------------------
-Node id  2 key  4 . 4 transaction amt  961
-----------------------
-----------------------
-Node id  2 key  9 . 3 transaction amt  44
-----------------------
-Node id  2 key  5 . 4 transaction amt  29
-----------------------
-----------------------
-----------------------
-----------------------
-Node id  2 key  7 . 4 transaction amt  1
-----------------------
-----------------------
-----------------------
-Node id  2 key  7 . 3 transaction amt  1
-----------------------
-Node id  2 key  1 . 3 transaction amt  17
-Node id  2 key  1 . 3 transaction amt  42
-----------------------
-Node id  2 key  0 . 2 transaction amt  29
-----------------------
-Node id  2 key  2 . 0 transaction amt  45
-----------------------
-Node id  2 key  6 . 3 transaction amt  27
-----------------------
-Node id  2 key  2 . 4 transaction amt  15
-----------------------
- # # # # # # # # # # # #
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 2901
-in validcoins Txn 2901
-#### 4.1
-Sender from tran 3 . 4 Receiver from trans  0 . 3 amount  26
-#### 10
-Sender  3 . 4 Receiver  0 . 3
-#### 11
- ##### 12
-#### 9
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 59
-in validcoins Txn 59
-#### 4.1
-Sender from tran 1 . 4 Receiver from trans  4 . 0 amount  27
-#### 10
-Sender  1 . 4 Receiver  4 . 0
 #### 11
  ##### 12
 #### 9
@@ -1243,9 +356,9 @@ Sender  1 . 4 Receiver  4 . 0
 coins 961
 in validcoins Txn 961
 #### 4.1
-Sender from tran 4 . 4 Receiver from trans  0 . 3 amount  13
+Sender from tran 2 . 4 Receiver from trans  5 . 1 amount  49
 #### 10
-Sender  4 . 4 Receiver  0 . 3
+Sender  2 . 4 Receiver  5 . 1
 #### 11
  ##### 12
 #### 9
@@ -1256,21 +369,7 @@ Sender  4 . 4 Receiver  0 . 3
 #### 7
 #### 7.2
 #### 8
-##### 5.2
-##### 5.3
-##### 5.4
-##### 5.5
-#### 7
-#### 7.2
-#### 8
-coins 2
-less coins
-in validcoins Txn -1
-#### 10
-#### 11
- ##### 12
-#### 9
-coins 0
+coins 39
 less coins
 in validcoins Txn -1
 #### 10
@@ -1291,12 +390,12 @@ in validcoins Txn -1
 #### 7
 #### 7.2
 #### 8
-coins 60
-in validcoins Txn 60
+coins 2001
+in validcoins Txn 2001
 #### 4.1
-Sender from tran 2 . 4 Receiver from trans  9 . 0 amount  29
+Sender from tran 4 . 4 Receiver from trans  9 . 4 amount  22
 #### 10
-Sender  2 . 4 Receiver  9 . 0
+Sender  4 . 4 Receiver  9 . 4
 #### 11
  ##### 12
 #### 9
@@ -1306,6 +405,15 @@ Sender  2 . 4 Receiver  9 . 0
 ##### 5.5
 #### 7
 #### 7.2
+#### 8
+coins 976
+in validcoins Txn 976
+#### 4.1
+Sender from tran 5 . 4 Receiver from trans  1 . 2 amount  25
+#### 10
+Sender  5 . 4 Receiver  1 . 2
+#### 11
+ ##### 12
 #### 9
 ##### 5.2
 ##### 5.3
@@ -1328,14 +436,37 @@ Sender  2 . 4 Receiver  9 . 0
 #### 7
 #### 7.2
 #### 8
-coins 964
-in validcoins Txn 964
+coins 48
+in validcoins Txn 48
 #### 4.1
-Sender from tran 6 . 4 Receiver from trans  4 . 1 amount  48
+Sender from tran 0 . 4 Receiver from trans  3 . 2 amount  25
 #### 10
-Sender  6 . 4 Receiver  4 . 1
+Sender  0 . 4 Receiver  3 . 2
 #### 11
  ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 39
+in validcoins Txn 39
+#### 4.1
+Sender from tran 7 . 4 Receiver from trans  5 . 1 amount  30
+#### 10
+Sender  7 . 4 Receiver  5 . 1
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
 #### 8
 ##### 5.2
 ##### 5.3
@@ -1344,11 +475,1586 @@ Sender  6 . 4 Receiver  4 . 1
 #### 7
 #### 7.2
 #### 8
-coins 1959
-in validcoins Txn 1959
+coins 992
+in validcoins Txn 992
 #### 4.1
-Sender from tran 0 . 4 Receiver from trans  9 . 2 amount  27
+Sender from tran 6 . 4 Receiver from trans  1 . 0 amount  37
 #### 10
-Sender  0 . 4 Receiver  9 . 2
+Sender  6 . 4 Receiver  1 . 0
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 982
+in validcoins Txn 982
+#### 4.1
+Sender from tran 9 . 4 Receiver from trans  3 . 2 amount  49
+#### 10
+Sender  9 . 4 Receiver  3 . 2
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1005
+in validcoins Txn 1005
+#### 4.1
+Sender from tran 8 . 4 Receiver from trans  7 . 0 amount  36
+#### 10
+Sender  8 . 4 Receiver  7 . 0
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 990
+in validcoins Txn 990
+#### 4.1
+Sender from tran 3 . 4 Receiver from trans  7 . 0 amount  50
+#### 10
+Sender  3 . 4 Receiver  7 . 0
+#### 11
+ ##### 12
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+In pow node id 0
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+Node id  0 key  9 . 4 transaction amt  22
+Node id  0 key  9 . 4 transaction amt  933
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+Node id  0 key  1 . 4 transaction amt  1981
+----------------------
+----------------------
+Node id  0 key  2 . 4 transaction amt  912
+----------------------
+----------------------
+Node id  0 key  3 . 4 transaction amt  940
+----------------------
+Node id  0 key  8 . 4 transaction amt  969
+----------------------
+Node id  0 key  4 . 4 transaction amt  1979
+----------------------
+----------------------
+----------------------
+----------------------
+Node id  0 key  5 . 4 transaction amt  951
+----------------------
+----------------------
+Node id  0 key  6 . 4 transaction amt  955
+----------------------
+Node id  0 key  0 . 1 transaction amt  1
+Node id  0 key  0 . 1 transaction amt  25
+----------------------
+Node id  0 key  5 . 1 transaction amt  49
+Node id  0 key  5 . 1 transaction amt  30
+----------------------
+Node id  0 key  1 . 2 transaction amt  25
+----------------------
+Node id  0 key  3 . 2 transaction amt  25
+Node id  0 key  3 . 2 transaction amt  49
+----------------------
+Node id  0 key  0 . 4 transaction amt  23
+----------------------
+Node id  0 key  7 . 4 transaction amt  9
+----------------------
+Node id  0 key  1 . 0 transaction amt  37
+----------------------
+Node id  0 key  7 . 0 transaction amt  36
+Node id  0 key  7 . 0 transaction amt  50
+----------------------
+ # # # # # # # # # # # #
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1014
+in validcoins Txn 1014
+#### 4.1
+Sender from tran 3 . 4 Receiver from trans  8 . 0 amount  44
+#### 10
+Sender  3 . 4 Receiver  8 . 0
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 955
+in validcoins Txn 955
+#### 4.1
+Sender from tran 6 . 4 Receiver from trans  8 . 1 amount  23
+#### 10
+Sender  6 . 4 Receiver  8 . 1
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 95
+in validcoins Txn 95
+#### 4.1
+Sender from tran 7 . 4 Receiver from trans  5 . 1 amount  45
+#### 10
+Sender  7 . 4 Receiver  5 . 1
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 2043
+in validcoins Txn 2043
+#### 4.1
+Sender from tran 1 . 4 Receiver from trans  6 . 3 amount  16
+#### 10
+Sender  1 . 4 Receiver  6 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 912
+in validcoins Txn 912
+#### 4.1
+Sender from tran 2 . 4 Receiver from trans  6 . 0 amount  12
+#### 10
+Sender  2 . 4 Receiver  6 . 0
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 49
+in validcoins Txn 49
+#### 4.1
+Sender from tran 0 . 4 Receiver from trans  1 . 2 amount  11
+#### 10
+Sender  0 . 4 Receiver  1 . 2
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1979
+in validcoins Txn 1979
+#### 4.1
+Sender from tran 4 . 4 Receiver from trans  6 . 3 amount  47
+#### 10
+Sender  4 . 4 Receiver  6 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 969
+in validcoins Txn 969
+#### 4.1
+Sender from tran 8 . 4 Receiver from trans  6 . 1 amount  24
+#### 10
+Sender  8 . 4 Receiver  6 . 1
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1030
+in validcoins Txn 1030
+#### 4.1
+Sender from tran 5 . 4 Receiver from trans  7 . 0 amount  38
+#### 10
+Sender  5 . 4 Receiver  7 . 0
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 955
+in validcoins Txn 955
+#### 4.1
+Sender from tran 9 . 4 Receiver from trans  1 . 3 amount  43
+#### 10
+Sender  9 . 4 Receiver  1 . 3
+#### 11
+ ##### 12
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+In pow node id 2
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Node id  2 key  6 . 1 transaction amt  24
+----------------------
+----------------------
+----------------------
+Node id  2 key  8 . 1 transaction amt  23
+----------------------
+----------------------
+Node id  2 key  9 . 4 transaction amt  912
+----------------------
+----------------------
+Node id  2 key  1 . 3 transaction amt  43
+----------------------
+----------------------
+----------------------
+Node id  2 key  1 . 4 transaction amt  2027
+----------------------
+----------------------
+Node id  2 key  2 . 4 transaction amt  900
+----------------------
+----------------------
+Node id  2 key  3 . 4 transaction amt  970
+----------------------
+Node id  2 key  8 . 4 transaction amt  945
+----------------------
+Node id  2 key  4 . 4 transaction amt  1932
+----------------------
+----------------------
+Node id  2 key  6 . 3 transaction amt  16
+Node id  2 key  6 . 3 transaction amt  47
+----------------------
+----------------------
+Node id  2 key  5 . 4 transaction amt  992
+----------------------
+----------------------
+Node id  2 key  6 . 4 transaction amt  932
+----------------------
+Node id  2 key  0 . 1 transaction amt  1
+----------------------
+Node id  2 key  5 . 1 transaction amt  45
+----------------------
+Node id  2 key  1 . 2 transaction amt  11
+----------------------
+----------------------
+Node id  2 key  0 . 4 transaction amt  38
+----------------------
+Node id  2 key  7 . 4 transaction amt  50
+----------------------
+----------------------
+Node id  2 key  7 . 0 transaction amt  38
+----------------------
+Node id  2 key  8 . 0 transaction amt  44
+----------------------
+Node id  2 key  6 . 0 transaction amt  12
+----------------------
+ # # # # # # # # # # # #
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 912
+in validcoins Txn 912
+#### 4.1
+Sender from tran 9 . 4 Receiver from trans  2 . 3 amount  11
+#### 10
+Sender  9 . 4 Receiver  2 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1012
+in validcoins Txn 1012
+#### 4.1
+Sender from tran 8 . 4 Receiver from trans  1 . 3 amount  34
+#### 10
+Sender  8 . 4 Receiver  1 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 88
+in validcoins Txn 88
+#### 4.1
+Sender from tran 7 . 4 Receiver from trans  9 . 3 amount  48
+#### 10
+Sender  7 . 4 Receiver  9 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 2081
+in validcoins Txn 2081
+#### 4.1
+Sender from tran 1 . 4 Receiver from trans  6 . 4 amount  40
+#### 10
+Sender  1 . 4 Receiver  6 . 4
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1037
+in validcoins Txn 1037
+#### 4.1
+Sender from tran 5 . 4 Receiver from trans  2 . 4 amount  45
+#### 10
+Sender  5 . 4 Receiver  2 . 4
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 39
+in validcoins Txn 39
+#### 4.1
+Sender from tran 0 . 4 Receiver from trans  9 . 3 amount  18
+#### 10
+Sender  0 . 4 Receiver  9 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 970
+in validcoins Txn 970
+#### 4.1
+Sender from tran 3 . 4 Receiver from trans  9 . 2 amount  13
+#### 10
+Sender  3 . 4 Receiver  9 . 2
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1932
+in validcoins Txn 1932
+#### 4.1
+Sender from tran 4 . 4 Receiver from trans  8 . 3 amount  47
+#### 10
+Sender  4 . 4 Receiver  8 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1031
+in validcoins Txn 1031
+#### 4.1
+Sender from tran 6 . 4 Receiver from trans  7 . 3 amount  33
+#### 10
+Sender  6 . 4 Receiver  7 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 900
+in validcoins Txn 900
+#### 4.1
+Sender from tran 2 . 4 Receiver from trans  4 . 0 amount  38
+#### 10
+Sender  2 . 4 Receiver  4 . 0
+#### 11
+ ##### 12
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+In pow node id 1
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+----------------------
+----------------------
+----------------------
+----------------------
+Node id  1 key  4 . 0 transaction amt  38
+----------------------
+Node id  1 key  9 . 4 transaction amt  901
+----------------------
+----------------------
+Node id  1 key  1 . 3 transaction amt  34
+----------------------
+----------------------
+----------------------
+Node id  1 key  1 . 4 transaction amt  2041
+----------------------
+----------------------
+Node id  1 key  2 . 4 transaction amt  45
+Node id  1 key  2 . 4 transaction amt  862
+----------------------
+----------------------
+Node id  1 key  3 . 4 transaction amt  957
+----------------------
+Node id  1 key  8 . 4 transaction amt  978
+----------------------
+Node id  1 key  4 . 4 transaction amt  1885
+----------------------
+----------------------
+----------------------
+----------------------
+Node id  1 key  5 . 4 transaction amt  992
+----------------------
+----------------------
+Node id  1 key  6 . 4 transaction amt  40
+Node id  1 key  6 . 4 transaction amt  998
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+Node id  1 key  0 . 4 transaction amt  21
+----------------------
+Node id  1 key  7 . 4 transaction amt  40
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+Node id  1 key  2 . 3 transaction amt  1
+Node id  1 key  2 . 3 transaction amt  11
+----------------------
+Node id  1 key  9 . 3 transaction amt  48
+Node id  1 key  9 . 3 transaction amt  18
+----------------------
+Node id  1 key  9 . 2 transaction amt  13
+----------------------
+Node id  1 key  8 . 3 transaction amt  47
+----------------------
+Node id  1 key  7 . 3 transaction amt  33
+----------------------
+ # # # # # # # # # # # #
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 957
+in validcoins Txn 957
+#### 4.1
+Sender from tran 3 . 4 Receiver from trans  7 . 0 amount  15
+#### 10
+Sender  3 . 4 Receiver  7 . 0
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 2075
+in validcoins Txn 2075
+#### 4.1
+Sender from tran 1 . 4 Receiver from trans  3 . 1 amount  45
+#### 10
+Sender  1 . 4 Receiver  3 . 1
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1025
+in validcoins Txn 1025
+#### 4.1
+Sender from tran 8 . 4 Receiver from trans  7 . 3 amount  41
+#### 10
+Sender  8 . 4 Receiver  7 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 992
+in validcoins Txn 992
+#### 4.1
+Sender from tran 5 . 4 Receiver from trans  9 . 1 amount  41
+#### 10
+Sender  5 . 4 Receiver  9 . 1
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1038
+in validcoins Txn 1038
+#### 4.1
+Sender from tran 6 . 4 Receiver from trans  1 . 3 amount  15
+#### 10
+Sender  6 . 4 Receiver  1 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 21
+less coins
+in validcoins Txn -1
+#### 10
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 919
+in validcoins Txn 919
+#### 4.1
+Sender from tran 2 . 4 Receiver from trans  3 . 3 amount  47
+#### 10
+Sender  2 . 4 Receiver  3 . 3
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 73
+in validcoins Txn 73
+#### 4.1
+Sender from tran 7 . 4 Receiver from trans  6 . 4 amount  41
+#### 10
+Sender  7 . 4 Receiver  6 . 4
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 21
+less coins
+in validcoins Txn -1
+#### 10
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 21
+less coins
+in validcoins Txn -1
+#### 10
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1923
+in validcoins Txn 1923
+#### 4.1
+Sender from tran 4 . 4 Receiver from trans  6 . 1 amount  50
+#### 10
+Sender  4 . 4 Receiver  6 . 1
+#### 11
+ ##### 12
+#### 7.2
+#### 8
+coins 21
+in validcoins Txn 21
+#### 4.1
+Sender from tran 0 . 4 Receiver from trans  2 . 4 amount  11
+#### 10
+Sender  0 . 4 Receiver  2 . 4
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 980
+in validcoins Txn 980
+#### 4.1
+Sender from tran 9 . 4 Receiver from trans  8 . 0 amount  42
+#### 10
+Sender  9 . 4 Receiver  8 . 0
+#### 11
+ ##### 12
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+In pow node id 4
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Block added to blockchain
+block txn list len  11
+Node id  4 key  6 . 1 transaction amt  50
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+Node id  4 key  9 . 4 transaction amt  938
+----------------------
+----------------------
+Node id  4 key  1 . 3 transaction amt  15
+----------------------
+----------------------
+----------------------
+Node id  4 key  1 . 4 transaction amt  1
+Node id  4 key  1 . 4 transaction amt  2030
+----------------------
+----------------------
+Node id  4 key  2 . 4 transaction amt  872
+Node id  4 key  2 . 4 transaction amt  11
+----------------------
+----------------------
+Node id  4 key  3 . 4 transaction amt  942
+----------------------
+Node id  4 key  8 . 4 transaction amt  984
+----------------------
+Node id  4 key  4 . 4 transaction amt  1873
+----------------------
+----------------------
+----------------------
+----------------------
+Node id  4 key  5 . 4 transaction amt  951
+----------------------
+----------------------
+Node id  4 key  6 . 4 transaction amt  1023
+Node id  4 key  6 . 4 transaction amt  41
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+Node id  4 key  0 . 4 transaction amt  10
+----------------------
+Node id  4 key  7 . 4 transaction amt  32
+----------------------
+----------------------
+Node id  4 key  7 . 0 transaction amt  15
+----------------------
+Node id  4 key  8 . 0 transaction amt  42
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+----------------------
+Node id  4 key  7 . 3 transaction amt  41
+----------------------
+Node id  4 key  3 . 1 transaction amt  45
+----------------------
+Node id  4 key  9 . 1 transaction amt  41
+----------------------
+Node id  4 key  3 . 3 transaction amt  47
+----------------------
+ # # # # # # # # # # # #
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 88
+in validcoins Txn 88
+#### 4.1
+Sender from tran 7 . 4 Receiver from trans  8 . 2 amount  39
+#### 10
+Sender  7 . 4 Receiver  8 . 2
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1114
+in validcoins Txn 1114
+#### 4.1
+Sender from tran 6 . 4 Receiver from trans  8 . 2 amount  23
+#### 10
+Sender  6 . 4 Receiver  8 . 2
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 883
+in validcoins Txn 883
+#### 4.1
+Sender from tran 2 . 4 Receiver from trans  8 . 0 amount  36
+#### 10
+Sender  2 . 4 Receiver  8 . 0
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1873
+in validcoins Txn 1873
+#### 4.1
+Sender from tran 4 . 4 Receiver from trans  7 . 0 amount  28
+#### 10
+Sender  4 . 4 Receiver  7 . 0
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 10
+less coins
+in validcoins Txn -1
+#### 10
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 951
+in validcoins Txn 951
+#### 4.1
+Sender from tran 5 . 4 Receiver from trans  9 . 1 amount  15
+#### 10
+Sender  5 . 4 Receiver  9 . 1
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1026
+in validcoins Txn 1026
+#### 4.1
+Sender from tran 8 . 4 Receiver from trans  2 . 2 amount  47
+#### 10
+Sender  8 . 4 Receiver  2 . 2
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 1034
+in validcoins Txn 1034
+#### 4.1
+Sender from tran 3 . 4 Receiver from trans  2 . 2 amount  28
+#### 10
+Sender  3 . 4 Receiver  2 . 2
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 10
+less coins
+in validcoins Txn -1
+#### 10
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 979
+in validcoins Txn 979
+#### 4.1
+Sender from tran 9 . 4 Receiver from trans  5 . 4 amount  18
+#### 10
+Sender  9 . 4 Receiver  5 . 4
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 2046
+in validcoins Txn 2046
+#### 4.1
+Sender from tran 1 . 4 Receiver from trans  8 . 1 amount  49
+#### 10
+Sender  1 . 4 Receiver  8 . 1
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 10
+less coins
+in validcoins Txn -1
+#### 10
+#### 11
+ ##### 12
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 10
+less coins
+in validcoins Txn -1
+#### 10
+#### 11
+ ##### 12
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+Creating block 
+##### 14.1
+##### 15.1
+##### 15.2
+#### 14.2
+#### 14.3
+ #### creating block ####
+#### 9
+##### 5.2
+##### 5.3
+##### 5.4
+##### 5.5
+#### 7
+#### 7.2
+#### 8
+coins 10
+less coins
+in validcoins Txn -1
+#### 10
 #### 11
  ##### 12
