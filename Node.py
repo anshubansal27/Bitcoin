@@ -12,9 +12,10 @@ from config import *
 from MerkleTree import MerkleTree
 from Transaction import *
 
-
 class Node:
     allNodes = []
+    txnFlag = True
+    txnnodes = []
     # publicKeyMap = {hash --> id}
     publickeyMap = {}
 
@@ -52,7 +53,7 @@ class Node:
         while(True):
             # print("in run")
             end = time.time()
-            if(end - self.start > 3):
+            if(end - self.start > 10):
                 if(len(self.transactions) > 0):
                     print("Creating block ")
                     blk = self.createBlock()
@@ -60,6 +61,7 @@ class Node:
                     self.target = blk.hashVal
                     pow = self.proofOfWork()
                     if pow:
+                        Node.txnFlag = False
                         print("In pow node id", self.id)
                         for node in self.allNodes:
                             node.processBlocks(blk)
@@ -75,6 +77,14 @@ class Node:
                             # print("transaction amt", val[0].output[val[1]][0])
                             print("----------------------")
                         print(" # # # # # # # # # # # #")
+                        Node.txnFlag = True
+                        Node.txnnodes = []
+                        self.incentive += incentive
+                        randkeyno = randrange(0,5)
+                        recverpubkeyHash = SHA256.new(hashlib.sha256(self.pubKey[randkeyno]).hexdigest().encode())
+                        txn = Transaction([],[],incentive,recverpubkeyHash,None,True)
+                        for node in self.allNodes:
+                            node.processTransactions(txn)
                     else:
                         self.start = time.time()
                     # self.transactions = []
@@ -82,8 +92,10 @@ class Node:
 
             dotxn = random()
 
-            if(dotxn <= 0.0001 ):
+            if(dotxn <= 0.4 and Node.txnFlag and self.id not in Node.txnnodes):
                 recvr = randrange(0,numberOfNodes)
+                while(str(recvr) == str(self.id)):
+                    recvr = randrange(0,numberOfNodes)
                 recvrnode = self.allNodes[recvr]
                 recvrkeyhash = recvrnode.getWalletAddress()
                 prev_txn = []
@@ -109,13 +121,14 @@ class Node:
                     except KeyError:
                         continue
                 # bitcoinval = randrange(1,self.bitcoins+1)
-                bitcoinval = 5
+                bitcoinval = randrange(10,51)
                 print("#### 9")
                 tempSender = sendrpubkeyhash.hexdigest()
                 tempReceiver = recvrkeyhash.hexdigest()
                 new_txn = Transaction(prev_txn,scriptsign,bitcoinval,recvrkeyhash,sendrpubkeyhash)
                 print("#### 10")
                 if new_txn.validTxn:
+                    Node.txnnodes.append(self.id)
                     print("Sender ", Node.publickeyMap[tempSender], "Receiver ", Node.publickeyMap[tempReceiver])
 
                 print("#### 11")
@@ -127,7 +140,7 @@ class Node:
                 # self.bitcoins -= bitcoinval
 
 
-            # time.sleep(1)
+            time.sleep(1)
 
     def generateNonce(self):
         return randrange(0,2**sizeOfNonce)
@@ -150,6 +163,7 @@ class Node:
 
         # txnList = self.transactions.copy()
         # self.transactions = txnList
+        temputxo = {}
         for txns in blck.txnList:
             for x in txns.input:
                 index = x[0][1]
@@ -162,9 +176,9 @@ class Node:
             for x in txns.output:
                 scriptpubKey = x[1].recvrkeyHash
                 try:
-                    self.utxo[scriptpubKey].append((txns,index))
+                    temputxo[scriptpubKey].append((txns,index))
                 except KeyError:
-                    self.utxo[scriptpubKey] = [(txns, index)]
+                    temputxo[scriptpubKey] = [(txns, index)]
             # print("txn, index", txn, index)
                 index += 1
 
@@ -172,11 +186,19 @@ class Node:
                 self.transactions.remove(txns)
             except ValueError:
                 continue
+        for key in temputxo:
+            val = temputxo[key]
+            for j in val:
+                try:
+                    self.utxo[key].append(j)
+                except KeyError:
+                    self.utxo[key] = [j]
+
 
         self.start = time.time()
 
     def createGenesisBlock(self):
-        bitcoinvalue = 50
+        bitcoinvalue = 1000
         # txn = []
         # print(numberOfNodes//2)
         for _ in range(numberOfNodes):

@@ -3,4 +3,4 @@ hashSize = 256
 arity = 2
 sizeOfNonce = 16
 incentive = 1
-numberOfNodes = 3
+numberOfNodes = 10
