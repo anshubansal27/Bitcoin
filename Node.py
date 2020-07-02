@@ -54,7 +54,8 @@ class Node:
         while(True):
             # print("in run")
             end = time.time()
-            if(end - self.start > 10):
+            # if(end - self.start > 10):
+            if(not len(self.transactions) < 10):
                 if(len(self.transactions) > 0):
                     print("Creating block ")
                     blk = self.createBlock()
@@ -68,6 +69,7 @@ class Node:
                         flag = True
                         for node in self.allNodes:
                             if node.getConsensus(blk) == False:
+                                print("consensus failed")
                                 flag = False
                                 break
 
@@ -161,6 +163,18 @@ class Node:
         for txn in block.txnList:
             if txn.validTxn == False:
                 return False
+            # print(" ###### consensus 1")
+            for inp in txn.input:
+                sign = inp[1].pubKey
+                signHash =  SHA256.new(hashlib.sha256(sign).hexdigest().encode())
+                txn = inp[0]
+                try:
+                    if txn not in self.utxo[signHash.hexdigest()]:
+                        # print(" ###### consensus 2")
+                        return False
+                except KeyError:
+                    return False
+
         return True
 
     def generateNonce(self):
@@ -253,16 +267,19 @@ class Node:
 
     def createBlock(self):
         print("##### 14.1")
+        start_time = time.time()
         txn = self.transactions.copy()
         rootMerkleTree = self.generateMerkleTree(txn)
         print("#### 14.2")
         blk = Block(self.blockchain.latestBlock,rootMerkleTree,self.generateNonce(),txn)
         print("#### 14.3")
         # self.transactions = []
+        print("Node", self.id, " --> total time to create block ", time.time() - start_time)
         return blk
 
 
     def generateMerkleTree(self, txns):
+        start_time = time.time()
         childs = []
         print("##### 15.1")
         for i in txns:
@@ -277,6 +294,7 @@ class Node:
                     childs.remove(childs[0])
 
             childs.append((MerkleTree(merkleTreeChild),level+1))
+        print("Node", self.id, " --> total time ", time.time() - start_time)
         return childs[0][0]
 
     def proofOfWork(self):
