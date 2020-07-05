@@ -1,6 +1,8 @@
 from BitcoinScripts import *
 from config import *
 from HashAlgo import *
+import sys
+
 
 
 class Transaction:
@@ -78,6 +80,13 @@ class Transaction:
             return -1
         # print("validCoin", validBitCoins)
         return validBitCoins
+    
+    def get_size(self):
+        totalSize = 0
+        totalSize += sys.getsizeof(self.hashVal)
+        totalSize += sys.getsizeof(self.input)
+        totalSize += sys.getsizeof(self.output)
+        return totalSize
 
 
 # senderkey = RSA.generate(2048)

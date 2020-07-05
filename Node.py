@@ -274,7 +274,8 @@ class Node:
         blk = Block(self.blockchain.latestBlock,rootMerkleTree,self.generateNonce(),txn)
         print("#### 14.3")
         # self.transactions = []
-        print("Node", self.id, " --> total time to create block ", time.time() - start_time)
+        print("Node", self.id, " txn list len" , len(blk.txnList) , "arity ", arity , " Size Of the Block ", blk.get_size())
+        print("Node", self.id, " txn list len" , len(blk.txnList) , " --> total time to create block ", time.time() - start_time)
         return blk
 
 

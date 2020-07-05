@@ -12,6 +12,10 @@ class MerkleTree:
             allHashVal = ""
             for i in child:
                 allHashVal += i.hashVal
+            j = arity - len(child)
+            # print("MErkle Tree arity " , arity)
+            if j > 0:
+                allHashVal += i.hashVal * j
             # print(allHashVal)
             # self.hashvalue = allHashVal
             self.hashVal = generateHash(allHashVal)
