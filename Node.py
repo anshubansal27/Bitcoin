@@ -1,6 +1,7 @@
 import concurrent.futures
 import multiprocessing
 import threading
+from threading import Lock,Thread
 import time
 from random import random, randrange
 
@@ -16,6 +17,7 @@ from prettytable import PrettyTable
 
 class Node:
     allNodes = []
+    mutex = Lock()
     txnFlag = True
     txnnodes = []
     txns_performed = PrettyTable()
@@ -61,6 +63,7 @@ class Node:
                     self.target = blk.hashVal
                     pow = self.proofOfWork()
                     if pow:
+                        Node.mutex.acquire()
                         Node.txnFlag = False
 
                         flag = True
@@ -77,6 +80,7 @@ class Node:
                             print(" -------------------------------------------------------------------------- ")
                             for node in self.allNodes:
                                 node.processBlocks(blk)
+                            Node.mutex.release()
                             print("--------After Performing the Transaction final state of the Nodes---------")
                             self.printUTXO()
 
@@ -97,6 +101,8 @@ class Node:
                             self.transactions = []
                             Node.txnFlag = True
                             Node.txnnodes = []
+                            Node.txns_performed.clear_rows()
+                            Node.mutex.release()
                     else:
                         self.start = time.time()
 
