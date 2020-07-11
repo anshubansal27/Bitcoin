@@ -7,17 +7,13 @@ class MerkleTree:
     def __init__(self, child, txnflag = False):
         if(txnflag):
             self.hashVal = child[0].hashVal
-            # print("txn")
         else:
             allHashVal = ""
             for i in child:
                 allHashVal += i.hashVal
             j = arity - len(child)
-            # print("MErkle Tree arity " , arity)
             if j > 0:
                 allHashVal += i.hashVal * j
-            # print(allHashVal)
-            # self.hashvalue = allHashVal
             self.hashVal = generateHash(allHashVal)
 
         self.childs = child

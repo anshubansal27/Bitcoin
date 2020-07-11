@@ -4,6 +4,3 @@ class BlockChain:
         self.latestBlock = None
         self.rootBlock = None
         return
-        
-    def getLongestChain(self):
-        return

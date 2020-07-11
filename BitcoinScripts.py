@@ -20,28 +20,18 @@ class ScriptSign:
 
 
 def executeScripts(scriptSign, scriptPubKey, hashVal):
-    print("##### 5.2")
     signature = scriptSign.sign
-    print("##### 5.3")
     sigPubKey = scriptSign.pubKey
-    print("##### 5.4")
     pubKeyHash = scriptPubKey.publicKeyHash
-
-    print("##### 5.5")
     genpubKeyHash = SHA256.new(hashlib.sha256(sigPubKey).hexdigest().encode())
     genpubKeyHash.update(hashVal.encode())
-    print("#### 7")
-    # print(genpubKeyHash.hexdigest())
     if(pubKeyHash.hexdigest() != genpubKeyHash.hexdigest()):
-        print("#### 7.1")
         return False
     verifier = PKCS115_SigScheme(RSA.importKey(sigPubKey))
     try:
-        print("#### 7.2")
         verifier.verify(pubKeyHash, signature)
     except:
         return False
-    print("#### 8")
     return True
 
 
